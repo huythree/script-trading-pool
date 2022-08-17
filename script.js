@@ -29,6 +29,6 @@ const wrap = async (pair, user) => {
     for (let index = 0; index < data.length; index++) {
         let a = await wrap(data[index].pair,data[index].user);
         console.log(a);
-        writeStream.write(`${data[index].user},${data[index].pair},${a.pendingReward},${a.hashrate}\n`);
+        writeStream.write(`${data[index].user},${data[index].pair},${a.pendingReward / 1e18},${a.hashrate}\n`);
     }
 })().catch(err => console.log("err", err))
